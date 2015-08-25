@@ -6,10 +6,11 @@ angular.module('GithubCardApp', ['ui.router'])
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('home', {url: '/', templateUrl: '/templates/home.html', controller: "HomeCtrl"});
+      .state('home', {url: '/', templateUrl: '/templates/home.html', controller: "HomeCtrl"})
+      .state('profile', {url: '/profile', templateUrl: '/templates/profile.html', controller: "ProfileCtrl"});
   }).run(function(){
     console.log('GithubCards Online');
   })
-  .constant('urls',{
-    'apiUrl': 'http://localhost:3000'
+  .constant('URLS',{
+    'api': 'http://localhost:3000'
   });
