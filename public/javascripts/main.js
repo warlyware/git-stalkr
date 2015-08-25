@@ -11,5 +11,5 @@ angular.module('GithubCardApp', ['ui.router'])
     console.log('GithubCards Online');
   })
   .constant('urls',{
-    'apiUrl': ''
+    'apiUrl': 'http://localhost:3000'
   });
