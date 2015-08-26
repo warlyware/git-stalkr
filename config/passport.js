@@ -160,7 +160,7 @@ module.exports = function(passport) {
     passReqToCallback: true
   }, function(req, token, refreshToken, profile, done) {
     process.nextTick(function() {
-
+      console.log(profile);
       if (!req.user) {
 
         User.findOne({ 'google.id': profile.id }, function(err, user) {
@@ -193,6 +193,7 @@ module.exports = function(passport) {
             newUser.google.token = token;
             newUser.google.name = profile.displayName;
             newUser.google.email = profile.emails[0].value;
+            // newUser.image = profile.photos[0].value;
 
             newUser.save(function(err) {
               if (err) {

@@ -13,25 +13,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
 </head>
 <body ng-app="GithubCardApp">
+  <header>
 
-  <nav ng-controller="NavCtrl">
-    <div class="nav-wrapper black">
-      <a href="#" class="brand-logo center">git watch</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
-        <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
-      </ul>
-      <ul class="side-nav black" id="mobile-demo">
-        <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
-        <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
-      </ul>
+    <nav ng-controller="NavCtrl">
+      <div class="nav-wrapper black">
+        <a href="#" class="brand-logo center">gitwatch</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
+          <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
+          <li><a href="/logout" class="grey-text text-lighten-3">logout</a></li>
+        </ul>
+        <ul class="side-nav black" id="mobile-demo">
+          <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
+          <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
+          <li><a href="/logout" class="grey-text text-lighten-3">logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+
+    <div class="container">
+      <ui-view></ui-view>
     </div>
-  </nav>
+    </main>
 
-  <div class="container">
-    <ui-view></ui-view>
-  </div>
+
+  <br>
+  <br>
+
+  <footer class="page-footer black">
+    <div class="footer-copyright">
+      <div class="container grey-text text-lighten-3">
+      © warlyware
+      <a href="//github.com/warlyware" class="grey-text text-lighten-4 right grey-text text-lighten-3">visit my github</a>
+      </div>
+    </div>
+  </footer>
 
 
   <script src="/javascripts/main.js"></script>

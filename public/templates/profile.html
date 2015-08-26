@@ -1,64 +1,87 @@
-<div>
-  <h2>profile page</h2>
-  <a class="btn" href="/logout" ng-if="user">logout</a>
-  <!-- <h3 ng-if="user.data.length">user: {{user}}</h3> -->
-  <div class="row">
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col s12 m4 sidebar">
+    <div class="card grey lighten-2 z-depth-5">
+      <div class="card-content grey-text text-darken-3">
+        <div class="card-title center grey-text text-darken-4">{{user.name}}</div>
+        <div class="center">
+          <br><br>
+          <img class="responsive-img circle center" ng-src="{{user.image}}" alt="">
+          <br><br><br>
+        </div>
+      </div>
+      <div class="card-action">
+        <div class="heading">email:</div>
+        <p class="user-info">{{user.email}}</p>
+        <div class="heading">occupation:</div>
+        <p class="user-info">{{user.occ}}</p>
+        <div class="heading">email:</div>
+        <p class="user-info">{{user.location}}</p>
+
+        <!-- <a href="#">This is a link</a>
+        <a href="#">This is a link</a> -->
+      </div>
+    </div>
+  </div>
 
 
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title black-text">google</span>
-          <div ng-show="user.google.token">
-            <p><strong>google name: </strong>{{user.google.name}}</p>
-            <p><strong>google ID: </strong>{{user.google.id}}</p>
-            <p><strong>google token: </strong>{{user.google.token}}</p>
-            <p><strong>google email: </strong>{{user.google.email}}</p>
-          </div>
+
+  <div class="col s12 m7 offset-m1">
+    <div class="card grey lighten-2 z-depth-5 z-depth-5">
+      <div class="card-content">
+        <div class="card-title black-text center">github info</div>
+        <br>
+        <div ng-show="user.github.token">
+          <p><strong>github name: </strong>{{user.github.name}}</p>
+          <p><strong>github email: </strong>{{user.github.email}}</p>
         </div>
-        <div class="card-action">
-          <a href="/unlink/google" ng-show="user.google.token">Unlink</a>
-          <a href="/connect/google" ng-show="!user.google.token">Connect Google</a>
+        <div class="center" ng-show="!user.github.token">
+          <a href="/connect/github" class="btn black">
+            <i class="fa fa-github"></i>
+            connect with github</a>
+          <p>to see more info</p>
         </div>
+      </div>
+      <div class="card-action center">
+        <a href="/unlink/github" ng-show="user.github.token" class="btn grey darken-1 white-text">
+          <i class="fa fa-github"></i> unlink from github
+        </a>
       </div>
     </div>
 
+    <br>
 
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title black-text">twitter</span>
-          <div ng-show="user.twitter.token">
-            <p><strong>twitter name: </strong>{{user.twitter.displayName}}</p>
-            <p><strong>twitter ID: </strong>{{user.twitter.id}}</p>
-            <p><strong>twitter token: </strong>{{user.twitter.token}}</p>
-            <p><strong>twitter username: </strong>{{user.twitter.username}}</p>
+    <div class="card grey lighten-2 z-depth-5 z-depth-5">
+      <div class="card-content">
+        <div class="card-title black-text center">google info</div>
+        <div ng-show="user.google.token">
+          <div class="row">
+            <br>
+            <div class="col s3">
+              <img class="responsive-img circle" ng-src="{{user.image}}" alt="">
+            </div>
+            <div class="col s8 offset-s1">
+              <br>
+              <p><strong>google name: </strong>{{user.google.name}}</p>
+              <p><strong>google email: </strong>{{user.google.email}}</p>
+            </div>
           </div>
-        </div>
-        <div class="card-action">
-          <a href="/unlink/twitter" ng-show="user.twitter.token">Unlink</a>
-          <a href="/connect/twitter" ng-show="!user.twitter.token">Connect Twitter</a>
-        </div>
+          </div>
+      </div>
+      <div class="card-action center">
+        <a href="/unlink/google" ng-show="user.google.token" class="btn red lighten-2 white-text">
+          <i class="fa fa-google"></i> unlink from google
+        </a>
+        <a href="/connect/google" ng-show="!user.google.token" class="btn red darken-1 white-text">
+          <i class="fa fa-google"></i> connect with google
+        </a>
       </div>
     </div>
 
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title black-text">github</span>
-          <div ng-show="user.github.token">
-            <p><strong>github name: </strong>{{user.github.name}}</p>
-            <p><strong>github ID: </strong>{{user.github.id}}</p>
-            <p><strong>gitub token: </strong>{{user.github.token}}</p>
-            <p><strong>github email: </strong>{{user.github.email}}</p>
-          </div>
-        </div>
-        <div class="card-action">
-          <a href="/unlink/github" ng-show="user.github.token">Unlink</a>
-          <a href="/connect/github" ng-show="!user.github.token">Connect Github</a>
-        </div>
-      </div>
-    </div>
 
   </div>
+
 </div>
