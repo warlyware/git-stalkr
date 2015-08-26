@@ -12,12 +12,6 @@ module.exports = function(app, passport) {
     res.redirect('/');
   });
 
-  app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile.ejs', {
-      user: req.user
-    });
-  });
-
 
   // AUTHENTICATION ROUTES
 
@@ -27,8 +21,8 @@ module.exports = function(app, passport) {
     });
 
     app.post('/login', passport.authenticate('local-login', {
-      successRedirect: '/profile',
-      failureRedirect: '/login',
+      successRedirect: '/#/profile',
+      failureRedirect: '/#/login',
       failureFlash: true
     }));
 
@@ -37,8 +31,8 @@ module.exports = function(app, passport) {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-      successRedirect: '/profile',
-      failureRedirect: '/signup',
+      successRedirect: '/#/profile',
+      failureRedirect: '/#/signup',
       failureFlash: true
     }));
 
@@ -46,7 +40,7 @@ module.exports = function(app, passport) {
     app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
     app.get('/auth/google/callback', passport.authenticate('google', {
-      successRedirect: '/profile',
+      successRedirect: '/#/profile',
       failureRedirect: '/'
     }));
 
@@ -55,7 +49,7 @@ module.exports = function(app, passport) {
 
     app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
-            successRedirect : '/profile',
+            successRedirect : '/#/profile',
             failureRedirect : '/'
         }));
 
@@ -64,7 +58,7 @@ module.exports = function(app, passport) {
       passport.authenticate('github'));
 
     app.get('/auth/github/callback', passport.authenticate('github', {
-      successRedirect: '/profile',
+      successRedirect: '/#/profile',
       failureRedirect: '/'
     }));
 
@@ -76,7 +70,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/connect/local', passport.authenticate('local-signup', {
-      successRedirect: '/profile',
+      successRedirect: '/#/profile',
       failureRedirect: '/connect/local',
       failureFlash: true
     }));
@@ -85,7 +79,7 @@ module.exports = function(app, passport) {
     app.get('/connect/google', passport.authorize('google', { scope: ['profile', 'email'] }));
 
     app.get('/connect/google/callback', passport.authorize('google', {
-      successRedirect: '/profile',
+      successRedirect: '/#/profile',
       failureRedirect: '/'
     }));
 
@@ -95,7 +89,7 @@ module.exports = function(app, passport) {
     // handle the callback after twitter has authorized the user
     app.get('/connect/twitter/callback',
         passport.authorize('twitter', {
-            successRedirect : '/profile',
+            successRedirect : '/#/profile',
             failureRedirect : '/'
         }));
 
@@ -105,7 +99,7 @@ module.exports = function(app, passport) {
     // handle the callback after github has authorized the user
     app.get('/connect/github/callback',
         passport.authorize('github', {
-            successRedirect : '/profile',
+            successRedirect : '/#/profile',
             failureRedirect : '/'
         }));
 
@@ -118,7 +112,7 @@ module.exports = function(app, passport) {
       user.local.email = undefined;
       user.local.password = undefined;
       user.save(function(err) {
-        res.redirect('/profile');
+        res.redirect('/#/profile');
       });
     });
 
@@ -127,7 +121,7 @@ module.exports = function(app, passport) {
       var user = req.user;
       user.google.token = undefined;
       user.save(function(err) {
-        res.redirect('/profile');
+        res.redirect('/#/profile');
       });
     });
 
@@ -136,7 +130,7 @@ module.exports = function(app, passport) {
       var user = req.user;
       user.twitter.token = undefined;
       user.save(function(err) {
-         res.redirect('/profile');
+         res.redirect('/#/profile');
       });
     });
 
@@ -146,7 +140,7 @@ module.exports = function(app, passport) {
       var user = req.user;
       user.github.token = undefined;
       user.save(function(err) {
-         res.redirect('/profile');
+         res.redirect('/#/profile');
       });
     });
 
