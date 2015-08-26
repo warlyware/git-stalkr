@@ -52,16 +52,41 @@ hr {
   font-style: italic;
 }
 
-.sidebar a {
-  color: black;
-  text-decoration: none;
+.bold {
+  font-weight: bold;
+}
+
+.nav-wrapper .github {
+  margin-left: 2px;
+}
+
+.nav-wrapper .google-plus {
+  margin-top: 2px;
+}
+
+.nav-wrapper .login-buttons {
+  margin-right: 15px;
+}
+
+.sidebar .avatar {
+  border-radius: 5px;
+}
+
+.sidebar .card-action a {
+  color: black !important;
+  text-transform: none !important;
 }
 
 .sidebar .heading {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
-.sidebar .user-info {
-  font-size: 1.4em;
+.sidebar .card-action .user-info {
+  font-size: 1.2em;
   margin-left: 15px;
 }
+/*
+.side-nav div {
+  padding-top: 10px !important;
+  padding-left: 10px !important;
+}*/

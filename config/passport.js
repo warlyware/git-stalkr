@@ -248,6 +248,7 @@ module.exports = function(passport) {
               user.github.name = profile.displayName;
               user.github.email = profile.emails[0].value;
 
+
               user.save(function(err) {
                 if (err) {
                   throw err;
@@ -264,6 +265,8 @@ module.exports = function(passport) {
             newUser.github.token = token;
             newUser.github.name = profile.displayName;
             newUser.github.email = profile.emails[0].value;
+            newUser.github.location = profile._json.location;
+            newUser.github.image = profile._json.avatar_url;
 
             newUser.save(function(err) {
               if (err) {
@@ -280,6 +283,8 @@ module.exports = function(passport) {
         user.github.token = token;
         user.github.name = profile.displayName;
         user.github.email = profile.emails[0].value;
+        user.github.location = profile._json.location;
+        user.github.image = profile._json.avatar_url;
 
         user.save(function(err) {
           if (err) {

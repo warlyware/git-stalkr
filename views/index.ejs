@@ -19,15 +19,32 @@
       <div class="nav-wrapper black">
         <a href="#" class="brand-logo center">gitwatch</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
-          <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
-          <li><a href="/logout" class="grey-text text-lighten-3">logout</a></li>
+        <ul class="right hide-on-med-and-down" ng-show="!user">
+          <li>sign in with:</li>
+          <li><a href="/auth/github" class="grey-text text-lighten-3"><i class="fa fa-github github fa-3x"></i></a></li>
+          <li><a href="/auth/google" class="grey-text text-lighten-3"><i class="fa fa-google-plus google-plus fa-3x"></i></a></li>
         </ul>
+        <ul class="right hide-on-med-and-down" ng-show="user">
+
+          <li><a ui-sref="dashboard" class="grey-text text-lighten-3"><i class="material-icons">dashboard</i></a></li>
+          <li><a ui-sref="profile" class="grey-text text-lighten-3"><i class="material-icons white-text">person</i></a></li>
+          <li><a href="/logout" class="grey-text text-lighten-3"><i class="fa fa-sign-out"></i></a></li>
+        </ul>
+
         <ul class="side-nav black" id="mobile-demo">
-          <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
-          <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
-          <li><a href="/logout" class="grey-text text-lighten-3">logout</a></li>
+
+          <div ng-show="user">
+            <li><a ui-sref="dashboard" class="grey-text text-lighten-3">dashboard</a></li>
+            <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
+            <li><a href="/logout" class="grey-text text-lighten-3">logout</a></li>
+          </div>
+          <div ng-show="!user">
+            <a href="/auth/github" class="grey-text text-lighten-3"><span class="fa fa-github"></span> sign in with github</a>
+            <a href="/auth/google" class="grey-text text-lighten-3"><span class="fa fa-google-plus"></span> sign in with google</a>
+          </div>
+
+
+
         </ul>
       </div>
     </nav>
@@ -45,9 +62,9 @@
 
   <footer class="page-footer black">
     <div class="footer-copyright">
-      <div class="container grey-text text-lighten-3">
+      <div class="container grey-text">
       © warlyware
-      <a href="//github.com/warlyware" class="grey-text text-lighten-4 right grey-text text-lighten-3">visit my github</a>
+      <a href="//github.com/warlyware" class="grey-text right grey-text">visit my github</a>
       </div>
     </div>
   </footer>
@@ -57,5 +74,6 @@
   <script src="/javascripts/controllers/home.js"></script>
   <script src="/javascripts/controllers/profile.js"></script>
   <script src="/javascripts/controllers/nav.js"></script>
+  <script src="/javascripts/controllers/dashboard.js"></script>
 </body>
 </html>

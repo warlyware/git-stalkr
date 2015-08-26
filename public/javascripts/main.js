@@ -7,7 +7,8 @@ angular.module('GithubCardApp', ['ui.router'])
 
     $stateProvider
       .state('home', {url: '/', templateUrl: '/templates/home.html', controller: "HomeCtrl"})
-      .state('profile', {url: '/profile', templateUrl: '/templates/profile.html', controller: "ProfileCtrl"});
+      .state('profile', {url: '/profile', templateUrl: '/templates/profile.html', controller: "ProfileCtrl"})
+      .state('dashboard', {url: '/dashboard', templateUrl: '/templates/dashboard.html', controller: "DashboardCtrl"});
   }).run(function(){
     console.log('GithubCards Online');
   })

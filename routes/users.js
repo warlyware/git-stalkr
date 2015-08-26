@@ -13,10 +13,9 @@ router.get('/data', function(req, res, next) {
     user.image = req.user.github.image || '/images/identicon.png';
     user.name = req.user.github.name || req.user.google.name;
     user.email = req.user.github.email || req.user.google.email;
+    user.location = req.user.github.location || 'unlisted';
     res.json(user);
   }
-
-
 
 });
 
