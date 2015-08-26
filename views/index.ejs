@@ -7,17 +7,35 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
 </head>
 <body ng-app="GithubCardApp">
 
-  <h1>home</h1>
-  <ui-view></ui-view>
+  <nav ng-controller="NavCtrl">
+    <div class="nav-wrapper black">
+      <a href="#" class="brand-logo center">git stalkr</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
+        <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
+      </ul>
+      <ul class="side-nav black" id="mobile-demo">
+        <li><a ui-sref="profile" class="grey-text text-lighten-3">dashboard</a></li>
+        <li><a ui-sref="profile" class="grey-text text-lighten-3">profile</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <ui-view></ui-view>
+  </div>
 
 
   <script src="/javascripts/main.js"></script>
   <script src="/javascripts/controllers/home.js"></script>
-  <script src="/javascripts/controllers/profile.js"></script>  
+  <script src="/javascripts/controllers/profile.js"></script>
+  <script src="/javascripts/controllers/nav.js"></script>
 </body>
 </html>
