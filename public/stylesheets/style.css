@@ -11,3 +11,32 @@ a {
 h1, h2, h3 {
   color: white;
 }
+
+hr {
+  color: #757575;
+}
+
+.btn {
+  border-radius: 5px !important;
+}
+
+.card {
+  border-radius: 10px !important;
+}
+
+.card-content p {
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
+
+.card-action {
+  border-top: 1px solid rgba(160,160,160,0.5) !important;
+}
+
+.card-content .card-title {
+  border-bottom: 1px solid rgba(160,160,160,0.5);
+}
+
+.italic {
+  font-style: italic;
+}
