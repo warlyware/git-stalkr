@@ -17,11 +17,7 @@ router.get('/user/:id', function(req, res, next) {
       } else  {
         console.log(err);
         res.status(500);
-
       }
-
-
-
     }
     console.log(user);
     res.json(user);
