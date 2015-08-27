@@ -7,6 +7,10 @@ body {
   flex-direction: column;
 }
 
+.rounded {
+  border-radius: 10px;
+}
+
 main {
   flex: 1 0 auto;
 }
@@ -66,6 +70,17 @@ hr {
   position: fixed;
   bottom: 120px;
   right: 30px;
+}
+
+.add-git-user-select {
+  padding-top: 6vh;
+}
+
+.add-git-user-select i {
+  background-color: green;
+  margin-top: 2px;
+  padding: 5px 10px 3px 10px;
+  border-radius: 50%;
 }
 
 .btn-user-search {

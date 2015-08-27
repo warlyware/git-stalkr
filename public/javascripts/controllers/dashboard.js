@@ -1,11 +1,20 @@
 'use strict()';
-angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $rootScope, $http, URLS) {
+angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $rootScope, $http, $state, URLS) {
   console.log('DashboardCtrl');
+
+  $http.get(URLS.api + '/users/data').then(function(user) {
+    console.log(user.data);
+    user.image = '/images/identicon.png';
+    $rootScope.user = user.data;
+  }, function(err) {
+    console.log(err);
+    $state.go('home');
+  });
 
   $scope.errorFindingUser = false;
 
   $scope.searchGithubUser = function () {
-    console.log('search here');
+
 
     $http.get(URLS.api + '/github/user/' + $scope.userToSearch)
       .then(function(user) {
@@ -25,11 +34,29 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
 
   };
 
+  $scope.addGithubUser = function() {
+    console.log('add here', $scope.userToAdd.login);
+    $http.post(URLS.api + '/watch/', {
+      currentUserID: $rootScope.user.id,
+      gitUser: $scope.userToAdd.login
+    }).then(function(user) {
+        $scope.userToAdd = undefined;
+        if (user.data === 'already added user') {
+          Materialize.toast('user has already been added', 3000, 'rounded');
+        } else {
+          console.log('added user', user);
+        }
+    }, function(err) {
+      console.log('err:', err);
+    });
+  };
 
 
 
   $(document).ready(function(){
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
+    // $('.tooltipped').tooltip({delay: 50});
+
   });
 });
