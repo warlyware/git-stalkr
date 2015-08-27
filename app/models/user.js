@@ -29,16 +29,15 @@ var userSchema = mongoose.Schema({
     email: String,
     name: String,
     location: String,
-    image: String
-    // url: String,
-    // followers_url: String,
-    // repos: String,
-    // type: String,
-    // blog: String,
-    // public_repos: String,
-    // public_gists: String,
-    // followers: String,
-    // following: String
+    image: String,
+    url: String,
+    followers_url: String,
+    repos: String,
+    blog: String,
+    public_repos: String,
+    public_gists: String,
+    followers: String,
+    following: String
   },
   watched: []
 });

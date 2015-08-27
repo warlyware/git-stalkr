@@ -232,7 +232,6 @@ module.exports = function(passport) {
     passReqToCallback: true
   }, function(req, token, refreshToken, profile, done) {
     process.nextTick(function() {
-      console.log(profile);
       if (!req.user) {
 
         User.findOne({ 'github.id': profile.id }, function(err, user) {
@@ -260,15 +259,29 @@ module.exports = function(passport) {
 
             return done(null, user);
           } else {
-            var newUser = new User();
+            var gitUserData = profile._json;
 
-            newUser.github.id = profile.id;
-            newUser.github.token = token;
-            newUser.github.name = profile.displayName;
-            newUser.github.email = profile.emails[0].value;
-            newUser.github.location = profile._json.location;
-            newUser.github.image = profile._json.avatar_url;
+            var newUser = new User();
+            newUser.github = {
+                id: profile.id,
+                token: token,
+                name: profile.displayName,
+                email: profile.emails[0].value,
+                image: gitUserData.avatar_url,
+                url: gitUserData.html_url,
+                followers_url: gitUserData.followers_url,
+                repos: gitUserData.repos_url,
+                site_admin: gitUserData.site_admin,
+                blog: gitUserData.blog,
+                location: gitUserData.location,
+                public_repos: gitUserData.public_repos,
+                public_gists: gitUserData.public_gists,
+                followers: gitUserData.followers,
+                following: gitUserData.following
+            };
             newUser.watched = [];
+
+            console.log(newUser);
 
             newUser.save(function(err) {
               if (err) {
@@ -280,6 +293,7 @@ module.exports = function(passport) {
         });
 
       } else {
+        // update credentials
         var user = req.user;
         user.github.id = profile.id;
         user.github.token = token;
