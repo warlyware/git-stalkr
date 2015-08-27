@@ -11,6 +11,8 @@ angular.module('GithubCardApp', ['ui.router'])
       .state('dashboard', {url: '/dashboard', templateUrl: '/templates/dashboard.html', controller: "DashboardCtrl"});
   }).run(function(){
     console.log('GithubCards Online');
+    $(".button-collapse").sideNav();
+
   })
   .constant('URLS',{
     'api': 'http://localhost:3000'

@@ -23,6 +23,15 @@ hr {
   color: #757575;
 }
 
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
 .btn {
   border-radius: 5px !important;
 }
@@ -48,12 +57,23 @@ hr {
   border-bottom: 1px solid rgba(160,160,160,0.5);
 }
 
-.italic {
-  font-style: italic;
+
+.add-git-user i {
+  background-color: black;
+  margin-top: 2px;
+  padding: 5px 10px 3px 10px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
 }
 
-.bold {
-  font-weight: bold;
+.btn-user-search {
+  width: 40vw;
+}
+
+.git-user-modal-card {
+  padding-bottom: 15px !important;
 }
 
 .nav-wrapper .github {

@@ -6,7 +6,46 @@
   <br>
 
   <div>
-    <h3 class="center">dash</h3>
+
+
+    <a href="#add-git-user-modal" class="modal-trigger">
+      <div class="add-git-user"><i class="fa fa-4x fa-plus white-text"></i></div>
+    </a>
   </div>
 
+  <!-- Modal Structure -->
+  <div id="add-git-user-modal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <div class="row">
+        <form class="col s6" ng-submit="searchGithubUser()">
+          <div class="row">
+            <br><br><br>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">github username</label>
+            </div>
+            <div class="center">
+              <button type="submit" class="btn waves-effect black btn-user-search">search</button>
+            </div>
+          </div>
+        </form>
+        <div class="col s6">
+          <div class="card grey lighten-2 z-depth-3 git-user-modal-card">
+            <div class="card-content black-text">
+              <span class="card-title black-text">Card Title</span>
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="" class="modal-action modal-close btn black right">add this user?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 </div>
