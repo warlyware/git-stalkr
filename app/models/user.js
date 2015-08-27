@@ -3,11 +3,9 @@ var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
   image: String,
-  id: String,
   name: String,
   email: String,
   occ: String,
-  watching: [],
   location: String,
   local: {
     email: String,
@@ -31,35 +29,18 @@ var userSchema = mongoose.Schema({
     email: String,
     name: String,
     location: String,
-    image: String,
-    url: String,
-    followers_url: String,
-    repos: String,
-    type: String,
-    blog: String,
-    public_repos: String,
-    public_gists: String,
-    followers: String,
-    following: String
-
+    image: String
+    // url: String,
+    // followers_url: String,
+    // repos: String,
+    // type: String,
+    // blog: String,
+    // public_repos: String,
+    // public_gists: String,
+    // followers: String,
+    // following: String
   },
-  watched: {
-    id: String,
-    image: String,
-    url: String,
-    followers_url: String,
-    repos: String,
-    type: String,
-    name: String,
-    username: String,
-    blog: String,
-    location: String,
-    email: String,
-    public_repos: String,
-    public_gists: String,
-    followers: String,
-    following: String
-  }
+  watched: []
 });
 
 module.exports = mongoose.model('User', userSchema);

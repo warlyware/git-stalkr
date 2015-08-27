@@ -194,6 +194,7 @@ module.exports = function(passport) {
             newUser.google.name = profile.displayName;
             newUser.google.email = profile.emails[0].value;
             // newUser.image = profile.photos[0].value;
+            newUser.watched = [];
 
             newUser.save(function(err) {
               if (err) {
@@ -267,6 +268,7 @@ module.exports = function(passport) {
             newUser.github.email = profile.emails[0].value;
             newUser.github.location = profile._json.location;
             newUser.github.image = profile._json.avatar_url;
+            newUser.watched = [];
 
             newUser.save(function(err) {
               if (err) {
