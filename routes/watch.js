@@ -6,13 +6,15 @@ var client = github.client({
   secret: process.env.GITHUB_CLIENT_SECRET
 });
 
+  router.post('/', function(req, res, next) {
+    var currentUserID = req.body.currentUserID;
+    var gitUser = req.body.gitUser;
 
-router.get('/user/:id', function(req, res, next) {
-  var gitUser = req.params.id;
-  client.get('/users/' + gitUser, {}, function (err, status, user, headers) {
-    console.log(user);
-    res.json(user);
+    client.get('/users/' + gitUser, {}, function (err, status, user, headers) {
+      res.json(user);
+    });
+
   });
-});
+
 
 module.exports = router;

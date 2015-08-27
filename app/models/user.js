@@ -3,6 +3,7 @@ var bcrypt = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
   image: String,
+  id: String,
   name: String,
   email: String,
   occ: String,
@@ -30,19 +31,35 @@ var userSchema = mongoose.Schema({
     email: String,
     name: String,
     location: String,
-    image: String
+    image: String,
+    url: String,
+    followers_url: String,
+    repos: String,
+    type: String,
+    blog: String,
+    public_repos: String,
+    public_gists: String,
+    followers: String,
+    following: String
+
   },
   watched: {
-    id: String
+    id: String,
+    image: String,
+    url: String,
+    followers_url: String,
+    repos: String,
+    type: String,
+    name: String,
+    username: String,
+    blog: String,
+    location: String,
+    email: String,
+    public_repos: String,
+    public_gists: String,
+    followers: String,
+    following: String
   }
 });
-
-userSchema.methods.generateHash = function(password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-userSchema.methods.validPassword = function(password) {
-  return bcrypt.compareSync(password, this.local.password);
-};
 
 module.exports = mongoose.model('User', userSchema);

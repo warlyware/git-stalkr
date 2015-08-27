@@ -14,6 +14,7 @@ var configDB = require('./config/database.js');
 // var routes = require('./routes/index');
 var users = require('./routes/users');
 var github = require('./routes/github');
+var watch = require('./routes/watch');
 
 var app = express();
 
@@ -44,6 +45,7 @@ require('./routes/auth.js')(app, passport);
 // app.use('/', routes);
 app.use('/users', users);
 app.use('/github', github);
+app.use('/watch', watch);
 
 
 // catch 404 and forward to error handler
