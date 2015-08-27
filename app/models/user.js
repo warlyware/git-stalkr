@@ -6,6 +6,7 @@ var userSchema = mongoose.Schema({
   name: String,
   email: String,
   occ: String,
+  watching: [],
   location: String,
   local: {
     email: String,
@@ -30,6 +31,9 @@ var userSchema = mongoose.Schema({
     name: String,
     location: String,
     image: String
+  },
+  watched: {
+    id: String
   }
 });
 
