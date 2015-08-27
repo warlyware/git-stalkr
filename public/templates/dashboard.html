@@ -22,7 +22,7 @@
             <br><br><br>
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
-              <input id="icon_prefix" type="text" class="validate">
+              <input id="icon_prefix" type="text" class="validate" ng-model="userToSearch">
               <label for="icon_prefix">github username</label>
             </div>
             <div class="center">
@@ -33,9 +33,20 @@
         <div class="col s6">
           <div class="card grey lighten-2 z-depth-3 git-user-modal-card">
             <div class="card-content black-text">
-              <span class="card-title black-text">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+
+              <div class="row">
+                <div class="col s3">
+                  <img ng-src="{{userToAdd.avatar_url}}" alt="" class="responsive-img circle">
+                </div>
+                <div class="col s9">
+                  <span class="card-title black-text">user found:</span>
+                  <p><span class="bold">name:</span> {{userToAdd.name}}</p>
+                  <p><span class="bold">username:</span> {{userToAdd.login}}</p>
+                  <p><a ng-href="{{userToAdd.html_url}}" target="_blank">visit page on github</a></p>
+                </div>
+              </div>
+
+
             </div>
             <div class="card-action">
               <a href="" class="modal-action modal-close btn black right">add this user?</a>
