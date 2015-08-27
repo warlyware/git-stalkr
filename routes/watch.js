@@ -21,7 +21,19 @@ router.post('/', function(req, res, next) {
 
     if (gitUserData) {
       User.findOne({'_id': currentUserID}, function(err, currentUser) {
-        currentUser.watched = currentUser.watched || [];
+
+
+        // console.log(currentUser);
+        var currentWatched = currentUser.watched;
+
+        for (var i = 0; i < currentWatched.length; i++) {
+          if (currentWatched[i].id === gitUserData.id) {
+            console.log('already added user');
+            res.send('already added user');
+            return;
+          }
+        }
+
         var watchedUser = {
           id: gitUserData.id,
           name: gitUserData.name,
@@ -45,7 +57,6 @@ router.post('/', function(req, res, next) {
             console.log(err);
             res.status(400).json({ error: "Validation Failed" });
           }
-          console.log("User Saved:", savedUser);
           res.json(savedUser);
         });
       });
