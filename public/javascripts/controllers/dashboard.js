@@ -1,5 +1,5 @@
 'use strict()';
-angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $rootScope, $http, $state, URLS) {
+angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $rootScope, $http, $state, URLS, ngDialog) {
   console.log('DashboardCtrl');
 
   $http.get(URLS.api + '/users/data').then(function(user) {
@@ -11,6 +11,15 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     console.log(err);
     $state.go('home');
   });
+
+
+  $scope.openGitUserInfo = function () {
+      ngDialog.open({
+        template: '/templates/gituserinfo.html',
+        className: 'ngdialog-theme-default'        
+      });
+  };
+
 
   $scope.errorFindingUser = false;
 

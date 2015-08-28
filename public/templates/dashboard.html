@@ -10,6 +10,7 @@
     </a>
   </div>
 
+
   <div class="row github-cards">
     <div class="col s12">
       <div class="card hoverable col s11 m5 l3 offset-s1 offset-m1 offset-l1 github-user-card z-depth-5" ng-repeat="watchedUser in watchedUsers track by $index">
@@ -18,15 +19,20 @@
           <a href="{{watchedUser.url}}"><span class="card-title white-text">{{watchedUser.username}}</span></a>
         </div>
         <div class="card-content">
-          <h5><span class="bold">{{watchedUser.name}}</span></h5>
-          <p><span class="bold location">{{watchedUser.location}}</span></p>
 
+          <p class="flow-text watched-name bold">{{watchedUser.name}}</p>
+          <span class="location">{{watchedUser.location}}</span>
+          <br>
           <div class="col s4 center">
             <!-- <i class="material-icons">mail</i> -->
-            <i class="material-icons">launch</i>
+            <a ng-href="" ng-click="openGitUserInfo()">
+              <i class="material-icons">launch</i>
+            </a>
           </div>
           <div class="col s4 center">
-            <i class="fa fa-github-square"></i>
+            <a ng-href="{{watchedUser.url}}" target="_blank">
+              <i class="fa fa-github-square"></i>
+            </a>
           </div>
           <div class="col s4 center">
             <a class="tooltipped" data-position="top" data-delay="30" data-tooltip="{{watchedUser.email || 'email not given'}}">
@@ -47,13 +53,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
 
 
   <!-- add github user modal -->

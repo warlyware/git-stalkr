@@ -102,9 +102,10 @@ hr {
   font-size: 2.5em;
   margin-top: 15px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
-.dashboard .github-user-card h5 {
+.dashboard .github-user-card .watched-name {
   border-bottom: 1px solid rgba(160,160,160,0.5);
   padding-bottom: 5px;
   margin-bottom: 5px;
@@ -112,7 +113,11 @@ hr {
 
 .dashboard .github-user-card .location {
   padding-bottom: 5px;
+  width: 100%;
   margin-bottom: 5px;
+  display: inline;
+  overflow: hidden;
+  float: left;
 }
 
 .dashboard .github-user-card img {
@@ -121,7 +126,8 @@ hr {
 
 .dashboard .github-user-card .card-title {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
 
@@ -159,8 +165,3 @@ hr {
   font-size: 1.2em;
   margin-left: 15px;
 }
-/*
-.side-nav div {
-  padding-top: 10px !important;
-  padding-left: 10px !important;
-}*/
