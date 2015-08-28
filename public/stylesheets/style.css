@@ -27,6 +27,19 @@ hr {
   color: #757575;
 }
 
+.avatar {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.ngdialog-content {
+  padding: 0 !important;
+}
+
+.ngdialog.ngdialog-theme-default {
+  padding-top: 100px !important;
+}
+
 .italic {
   font-style: italic;
 }
@@ -61,7 +74,46 @@ hr {
   border-bottom: 1px solid rgba(160,160,160,0.5);
 }
 
+.github-user-card .card-title {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
 
+
+.github-user-card .follow-text {
+  font: 2em;
+}
+
+.github-user-card .followers {
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 100px;
+  width: 100px;
+  color: white;
+  border-radius: 50%;
+  background-color: seagreen;
+}
+
+
+.github-user-card .following {
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 100px;
+  width: 100px;
+  color: darkgrey;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.github-user-card .card-contet {
+  border-radius: 10px !important;
+}
+
+.github-user-card .follow-number {
+  padding-top: 40%;
+  font-size: 3em;
+}
 .dashboard .add-git-user i {
   background-color: black;
   z-index: 1000;
@@ -107,28 +159,24 @@ hr {
 
 .dashboard .github-user-card .watched-name {
   border-bottom: 1px solid rgba(160,160,160,0.5);
-  padding-bottom: 5px;
-  margin-bottom: 5px;
 }
 
 .dashboard .github-user-card .location {
   padding-bottom: 5px;
-  width: 100%;
-  margin-bottom: 5px;
-  display: inline;
+  margin-top: 10px;
+  display: block;
   overflow: hidden;
-  float: left;
+  /*float: left;*/
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 
 .dashboard .github-user-card img {
   border-radius: 5px !important;
 }
 
-.dashboard .github-user-card .card-title {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
+
 
 
 

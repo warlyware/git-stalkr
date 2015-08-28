@@ -1,7 +1,31 @@
 <!-- <div class="modal-content"> -->
-  <h4>Modal Header</h4>
-  <p>A bunch of text</p>
-  
+  <!-- <h4>Modal Header</h4>
+  <p>A bunch of text</p> -->
+
+  <div class="card grey lighten-2 z-depth-5 github-user-card">
+    <div class="card-content grey-text text-darken-3">
+      <div class="card-image">
+        <img ng-src="{{ngDialogData.image}}">
+        <span class="card-title white-text">{{ngDialogData.username}}</span>
+      </div>
+
+      <div class="row">
+        <br>
+        <div class="col s6 center">
+          <p class="follow-text italic">followers</p>
+          <div class="followers center"><div class="follow-number">{{ngDialogData.followers}}</div></div>
+        </div>
+        <div class="col s6 center">
+          <p class="follow-text italic">following</p>
+          <div class="following center"><div class="follow-number">{{ngDialogData.following}}</div></div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
 <!-- </div> -->
 <!-- <div class="modal-footer">
   <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>

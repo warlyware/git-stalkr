@@ -21,33 +21,25 @@
         <div class="card-content">
 
           <p class="flow-text watched-name bold">{{watchedUser.name}}</p>
-          <span class="location">{{watchedUser.location}}</span>
+          <span class="location italic">{{watchedUser.location || 'location not provided'}}</span>
           <br>
-          <div class="col s4 center">
-            <!-- <i class="material-icons">mail</i> -->
-            <a ng-href="" ng-click="openGitUserInfo()">
-              <i class="material-icons">launch</i>
-            </a>
-          </div>
-          <div class="col s4 center">
-            <a ng-href="{{watchedUser.url}}" target="_blank">
-              <i class="fa fa-github-square"></i>
-            </a>
-          </div>
-          <div class="col s4 center">
-            <a class="tooltipped" data-position="top" data-delay="30" data-tooltip="{{watchedUser.email || 'email not given'}}">
-              <i class="material-icons">forward</i>
-            </a>
 
-          </div>
 
-          <p class="flow-text">
+            <div class="col s4 center">
+              <!-- <i class="material-icons">mail</i> -->
+              <a ng-href="" ng-click="openGitUserInfo(watchedUser)">
+                <i class="material-icons">launch</i>
+              </a>
+            </div>
+            <div class="col s4 center">
+              <a ng-href="{{watchedUser.url}}" target="_blank">
+                <i class="fa fa-github-square"></i>
+              </a>
+            </div>
+            <div class="col s4 center">
+              <i class="material-icons">delete</i>
+            </div>
 
-<!--
-            <span class="bold italic">
-              <a href="mailto:{{watchedUser.email}}" class="black-text">{{watchedUser.email || 'email not given'}}</a>
-            </span> -->
-          </p>
 
         </div>
       </div>

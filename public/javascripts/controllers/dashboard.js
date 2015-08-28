@@ -13,10 +13,11 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
   });
 
 
-  $scope.openGitUserInfo = function () {
+  $scope.openGitUserInfo = function (watchedUser) {
       ngDialog.open({
         template: '/templates/gituserinfo.html',
-        className: 'ngdialog-theme-default'        
+        className: 'ngdialog-theme-default',
+        data: watchedUser
       });
   };
 
