@@ -34,10 +34,15 @@ hr {
 
 .ngdialog-content {
   padding: 0 !important;
+  border-radius: 10px !important;
 }
 
-.ngdialog.ngdialog-theme-default {
-  padding-top: 100px !important;
+.ngdialog {
+  padding-top: 50px !important;
+}
+
+.ngdialog .ngdialog-close {
+  visibility: hidden !important;
 }
 
 .italic {
@@ -81,39 +86,48 @@ hr {
 }
 
 
-.github-user-card .follow-text {
+.github-user-card .git-stat-text {
   font: 2em;
 }
 
-.github-user-card .followers {
+.github-user-card .git-stat {
   margin: 0 auto;
-  margin-top: 10px;
-  height: 100px;
-  width: 100px;
-  color: white;
+  margin-bottom: 15px;
+  height: 115px;
+  width: 115px;
   border-radius: 50%;
-  background-color: seagreen;
+}
+
+
+.github-user-card .repos {
+  background-color: #37C1D1;
+}
+
+
+.github-user-card .gists {
+  background-color: #E5187D;
+}
+
+
+.github-user-card .followers {
+  background-color: #41D190;
 }
 
 
 .github-user-card .following {
-  margin: 0 auto;
-  margin-top: 10px;
-  height: 100px;
-  width: 100px;
-  color: darkgrey;
-  border-radius: 50%;
-  background-color: white;
+  background-color: black;
 }
 
 .github-user-card .card-contet {
   border-radius: 10px !important;
 }
 
-.github-user-card .follow-number {
+.github-user-card .git-stat-number {
   padding-top: 40%;
-  font-size: 3em;
+  font-size: 2.7em;
+  color: white;
 }
+
 .dashboard .add-git-user i {
   background-color: black;
   z-index: 1000;

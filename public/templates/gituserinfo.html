@@ -12,12 +12,29 @@
       <div class="row">
         <br>
         <div class="col s6 center">
-          <p class="follow-text italic">followers</p>
-          <div class="followers center"><div class="follow-number">{{ngDialogData.followers}}</div></div>
+          <p class="git-stat-text italic">repos</p>
+          <div class="git-stat repos center">
+            <a ng-href="{{ngDialogData.url}}?tab=repositories" target="_blank"><div class="git-stat-number">{{ngDialogData.public_repos}}</div></a>
+          </div>
         </div>
         <div class="col s6 center">
-          <p class="follow-text italic">following</p>
-          <div class="following center"><div class="follow-number">{{ngDialogData.following}}</div></div>
+          <p class="git-stat-text italic">gists</p>
+          <div class="git-stat gists center">
+            <a ng-href="https://gist.github.com/{{ngDialogData.username}}" target="_blank"><div class="git-stat-number">{{ngDialogData.public_gists}}</div></a>
+          </div>
+        </div>
+        <br>
+        <div class="col s6 center">
+          <p class="git-stat-text italic">followers</p>
+          <div class="git-stat followers center">
+            <a ng-href="{{ngDialogData.url}}/followers" target="_blank"><div class="git-stat-number">{{ngDialogData.followers}}</div></a>
+          </div>
+        </div>
+        <div class="col s6 center">
+          <p class="git-stat-text italic">following</p>
+          <div class="git-stat following center">
+            <a ng-href="{{ngDialogData.url}}/following" target="_blank"><div class="git-stat-number">{{ngDialogData.following}}</div></a>
+          </div>
         </div>
       </div>
 
