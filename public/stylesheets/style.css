@@ -62,8 +62,9 @@ hr {
 }
 
 
-.add-git-user i {
+.dashboard .add-git-user i {
   background-color: black;
+  z-index: 1000;
   margin-top: 2px;
   padding: 5px 10px 3px 10px;
   border-radius: 50%;
@@ -72,23 +73,61 @@ hr {
   right: 30px;
 }
 
-.add-git-user-select {
+.dashboard .add-git-user-select {
   padding-top: 6vh;
 }
 
-.add-git-user-select i {
+.dashboard .add-git-user-select i {
   background-color: green;
   margin-top: 2px;
   padding: 5px 10px 3px 10px;
   border-radius: 50%;
 }
 
-.btn-user-search {
+.dashboard .btn-user-search {
   width: 40vw;
 }
 
-.git-user-modal-card {
+.dashboard .git-user-modal-card {
   padding-bottom: 15px !important;
+}
+
+.dashboard .github-user-card {
+  padding-top: 10px !important;
+  margin-bottom: 50px;
+}
+
+.dashboard .github-user-card i {
+  color: black;
+  font-size: 2.5em;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.dashboard .github-user-card h5 {
+  border-bottom: 1px solid rgba(160,160,160,0.5);
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.dashboard .github-user-card .location {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.dashboard .github-user-card img {
+  border-radius: 5px !important;
+}
+
+.dashboard .github-user-card .card-title {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);;
+}
+
+
+
+.dashboard .github-cards {
+  margin-left: -8vw !important;
 }
 
 .nav-wrapper .github {

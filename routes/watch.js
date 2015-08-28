@@ -37,6 +37,8 @@ router.post('/', function(req, res, next) {
         var watchedUser = {
           id: gitUserData.id,
           name: gitUserData.name,
+          username: gitUserData.login,
+          email: gitUserData.email,
           image: gitUserData.avatar_url,
           url: gitUserData.html_url,
           followers_url: gitUserData.followers_url,

@@ -6,6 +6,7 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     console.log(user.data);
     user.image = '/images/identicon.png';
     $rootScope.user = user.data;
+    $scope.watchedUsers = user.data.watched;
   }, function(err) {
     console.log(err);
     $state.go('home');
@@ -14,7 +15,6 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
   $scope.errorFindingUser = false;
 
   $scope.searchGithubUser = function () {
-
 
     $http.get(URLS.api + '/github/user/' + $scope.userToSearch)
       .then(function(user) {
@@ -45,6 +45,7 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
           Materialize.toast('user has already been added', 3000, 'rounded');
         } else {
           console.log('added user', user);
+          $state.reload();
         }
     }, function(err) {
       console.log('err:', err);
@@ -57,6 +58,6 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     // $('.tooltipped').tooltip({delay: 50});
-
+    $('.tooltipped').tooltip({delay: 50});
   });
 });
