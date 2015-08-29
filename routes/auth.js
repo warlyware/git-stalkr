@@ -40,7 +40,7 @@ module.exports = function(app, passport) {
     app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
     app.get('/auth/google/callback', passport.authenticate('google', {
-      successRedirect: '/#/profile',
+      successRedirect: '/#/dashboard',
       failureRedirect: '/'
     }));
 
@@ -58,7 +58,7 @@ module.exports = function(app, passport) {
       passport.authenticate('github'));
 
     app.get('/auth/github/callback', passport.authenticate('github', {
-      successRedirect: '/#/profile',
+      successRedirect: '/#/dashboard',
       failureRedirect: '/'
     }));
 

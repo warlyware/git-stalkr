@@ -59,7 +59,7 @@ router.post('/', function(req, res, next) {
             console.log(err);
             res.status(400).json({ error: "Validation Failed" });
           }
-          res.json(savedUser);
+          res.json(watchedUser);
         });
       });
     }

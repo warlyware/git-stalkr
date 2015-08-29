@@ -5,8 +5,14 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
   $http.get(URLS.api + '/users/data').then(function(user) {
     console.log(user.data);
     user.image = '/images/identicon.png';
+
+    if (!user.data.watched.length && user.data.github.token) {
+      // Add modal here for import from follow
+      openGitUserImport(user);
+    }
+
     $rootScope.user = user.data;
-    $scope.watchedUsers = user.data.watched;
+    $rootScope.watchedUsers = user.data.watched;
   }, function(err) {
     console.log(err);
     $state.go('home');
@@ -21,6 +27,19 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
       });
   };
 
+  openGitUserImport = function (user) {
+
+      $http.get(URLS.api + '/github/following/' + user.data.github.token).then(function(following) {
+        console.log(following);
+        ngDialog.open({
+          template: '/templates/gituserimport.html',
+          className: 'ngdialog-theme-default',
+          controller: 'GitImportCtrl',
+          data: following
+        });
+      });
+
+  };
 
   $scope.errorFindingUser = false;
 
@@ -55,6 +74,7 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
           Materialize.toast('user has already been added', 3000, 'rounded');
         } else {
           console.log('added user', user);
+          Materialize.toast('user added', 3000, 'rounded');
           $state.reload();
         }
     }, function(err) {
@@ -62,10 +82,15 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     });
   };
 
-
+  // var currentUser = $rootScope.user;
+  // $scope.$watch(function(currentUser) {
+  //   $scope.watchedUsers = user.data.watched;
+  //   console.log('function watched');
+  //   return currentUser;
+  // });
 
   $(document).ready(function(){
-  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     // $('.tooltipped').tooltip({delay: 50});
     $('.tooltipped').tooltip({delay: 50});
