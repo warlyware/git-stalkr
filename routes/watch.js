@@ -68,6 +68,32 @@ router.post('/', function(req, res, next) {
 
 });
 
+router.delete('/', function(req, res, next) {
+  var currentUserID = req.body.currentUserID;
+  var userToUnwatch = req.body.gitUser;
+
+  User.findOne({'_id': currentUserID}, function(err, currentUser) {
+
+    var watchedArray = currentUser.watched;
+    watchedArray.forEach(function(watchedUser, i) {
+      if (watchedUser.username === userToUnwatch) {
+        console.log('removing', watchedUser);
+        watchedArray.splice(i, 1);
+      }
+    });
+
+    currentUser.save(function(err, savedUser) {
+      if (err) {
+        console.log(err);
+        res.status(400).json({ error: "Validation Failed" });
+      }
+      res.json(savedUser);
+    });
+  });
+
+
+});
+
 
 
 module.exports = router;
