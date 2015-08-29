@@ -68,10 +68,10 @@ router.post('/', function(req, res, next) {
 
 });
 
-router.delete('/', function(req, res, next) {
-  var currentUserID = req.body.currentUserID;
-  var userToUnwatch = req.body.gitUser;
-
+router.delete('/:currentUserID/:gitUser', function(req, res, next) {
+  var currentUserID = req.params.currentUserID;
+  var userToUnwatch = req.params.gitUser;
+  console.log(req.body);
   User.findOne({'_id': currentUserID}, function(err, currentUser) {
 
     var watchedArray = currentUser.watched;
@@ -87,10 +87,9 @@ router.delete('/', function(req, res, next) {
         console.log(err);
         res.status(400).json({ error: "Validation Failed" });
       }
-      res.json(savedUser);
+      res.json(userToUnwatch);
     });
   });
-
 
 });
 

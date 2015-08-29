@@ -25,21 +25,22 @@
           <br>
 
 
-            <div class="col s4 center">
-              <!-- <i class="material-icons">mail</i> -->
-              <a ng-href="" ng-click="openGitUserInfo(watchedUser)">
-                <i class="material-icons">launch</i>
-              </a>
-            </div>
-            <div class="col s4 center">
-              <a ng-href="{{watchedUser.url}}" target="_blank">
-                <i class="fa fa-github-square"></i>
-              </a>
-            </div>
-            <div class="col s4 center">
+          <div class="col s4 center">
+            <!-- <i class="material-icons">mail</i> -->
+            <a ng-href="" ng-click="openGitUserInfo(watchedUser)">
+              <i class="material-icons">launch</i>
+            </a>
+          </div>
+          <div class="col s4 center">
+            <a ng-href="{{watchedUser.url}}" target="_blank">
+              <i class="fa fa-github-square"></i>
+            </a>
+          </div>
+          <div class="col s4 center">
+            <a ng-href="" ng-click="removeWatchedUser(watchedUser)">
               <i class="material-icons">delete</i>
-            </div>
-
+            </a>
+          </div>
 
         </div>
       </div>
