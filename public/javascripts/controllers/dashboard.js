@@ -64,17 +64,25 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
   };
 
   $scope.removeWatchedUser = function(watchedUser) {
-    console.log($rootScope.user._id);
-    console.log(watchedUser.username);
     var currentUserID = $rootScope.user._id;
     var gitUser = watchedUser.username;
-    $http.delete(URLS.api + '/watch/' + currentUserID + '/' + gitUser).then(function(user) {
-      console.log(user);
-      Materialize.toast(gitUser + 'user has been removed', 3000, 'rounded');
-      $state.reload();
-    }, function(err) {
-      console.log(err);
+
+    swal({
+      title: 'stop watching ' + gitUser + '?',
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#37C1D1",
+      confirmButtonText: "yes",
+    },
+    function(){
+      $http.delete(URLS.api + '/watch/' + currentUserID + '/' + gitUser).then(function(user) {
+        Materialize.toast(gitUser + ' has been removed', 3000, 'rounded');
+        $state.reload();
+      }, function(err) {
+        console.log(err);
+      });
     });
+
 
   };
 
