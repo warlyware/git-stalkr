@@ -15,5 +15,5 @@ angular.module('GithubCardApp', ['ui.router', 'ngDialog', 'cgBusy'])
 
   })
   .constant('URLS',{
-    'api': 'http://localhost:3000'
+    'api': 'dw-gitwatch.herokuapp.com'
   });
