@@ -6,10 +6,13 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     console.log(user.data);
     user.image = '/images/identicon.png';
 
-    if (!user.data.watched.length && user.data.github.token) {
-      // Add modal here for import from follow
-      openGitUserImport(user);
+    if (user.data.github) {
+      if (!user.data.watched.length && user.data.github.token) {
+        // Add modal here for import from follow
+        $scope.openGitUserImport(user.data);
+      }
     }
+
 
     $rootScope.user = user.data;
     $rootScope.watchedUsers = user.data.watched;
@@ -27,9 +30,11 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
       });
   };
 
-  openGitUserImport = function (user) {
+  $scope.openGitUserImport = function (user) {
 
-      $http.get(URLS.api + '/github/following/' + user.data.github.token).then(function(following) {
+    console.log(user);
+
+      $http.get(URLS.api + '/github/following/' + user.github.token).then(function(following) {
         console.log(following);
         ngDialog.open({
           template: '/templates/gituserimport.html',
