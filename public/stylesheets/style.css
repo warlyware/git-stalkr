@@ -32,6 +32,10 @@ hr {
   padding-right: 30px;
 }
 
+.hidden{
+  opacity: 0;
+}
+
 .ngdialog-content {
   padding: 0 !important;
   border-radius: 10px !important;

@@ -2,6 +2,8 @@
 angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $rootScope, $http, $state, URLS, ngDialog) {
   console.log('DashboardCtrl');
 
+
+
   $http.get(URLS.api + '/users/data').then(function(user) {
     console.log(user.data);
     user.image = '/images/identicon.png';
@@ -16,6 +18,10 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
 
     $rootScope.user = user.data;
     $rootScope.watchedUsers = user.data.watched;
+    setTimeout(function() {
+      TweenLite.from($(".github-user-card"), 1, {bottom: -1000});
+    }, 50);
+
   }, function(err) {
     console.log(err);
     $state.go('home');
@@ -74,7 +80,8 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
 
   };
 
-  $scope.removeWatchedUser = function(watchedUser) {
+  $scope.removeWatchedUser = function(watchedUser, $event) {
+    console.log($event);
     var currentUserID = $rootScope.user._id;
     var gitUser = watchedUser.username;
 
@@ -88,7 +95,18 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     function(){
       $http.delete(URLS.api + '/watch/' + currentUserID + '/' + gitUser).then(function(user) {
         Materialize.toast(gitUser + ' has been removed', 3000, 'rounded');
-        $state.reload();
+        var watchedArray = $rootScope.watchedUsers;
+        console.log(watchedArray);
+        setTimeout(function() {
+          for (var i = 0; i < watchedArray.length; i++) {
+            console.log(watchedArray[i]);
+            console.log(watchedUser);
+            if (watchedArray[i] === watchedUser) {
+              watchedArray.splice(i, 1);
+            }
+          }
+        }, 500);
+
       }, function(err) {
         console.log(err);
       });
@@ -107,9 +125,11 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
         if (user.data === 'already added user') {
           Materialize.toast('user has already been added', 3000, 'rounded');
         } else {
+          var watchedArray = $rootScope.watchedUsers;
+          var userToAdd = $scope.userToAdd;
+          watchedArray.push(user.data);
           console.log('added user', user);
           Materialize.toast('user added', 3000, 'rounded');
-          $state.reload();
         }
     }, function(err) {
       console.log('err:', err);
@@ -128,5 +148,6 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     $('.modal-trigger').leanModal();
     // $('.tooltipped').tooltip({delay: 50});
     $('.tooltipped').tooltip({delay: 50});
+    $('.collapsible').collapsible();
   });
 });
