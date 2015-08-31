@@ -34,15 +34,18 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
 
     console.log(user);
 
-      $http.get(URLS.api + '/github/following/' + user.github.token).then(function(following) {
-        console.log(following);
-        ngDialog.open({
-          template: '/templates/gituserimport.html',
-          className: 'ngdialog-theme-default',
-          controller: 'GitImportCtrl',
-          data: following
-        });
+    $http.get(URLS.api + '/github/following/' + user._id).then(function(filteredFollowing) {
+
+      console.log(filteredFollowing);
+
+      // console.log(followingArray);
+      ngDialog.open({
+        template: '/templates/gituserimport.html',
+        className: 'ngdialog-theme-default',
+        controller: 'GitImportCtrl',
+        data: filteredFollowing
       });
+    });
 
   };
 

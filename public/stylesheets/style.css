@@ -53,6 +53,10 @@ hr {
   font-weight: bold;
 }
 
+#toast-container {
+  z-index: 1000000 !important;
+}
+
 
 .btn {
   border-radius: 5px !important;
@@ -84,6 +88,7 @@ hr {
 }
 
 .import-git-user i {
+  cursor: pointer;
   background-color: darkgreen;
   z-index: 1000;
   margin-top: 8px;

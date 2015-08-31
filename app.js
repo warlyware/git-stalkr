@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var flash = require('connect-flash');
 var passport = require('passport');
 var session = require('express-session');
+var trending = require('github-trending');
 
 var configDB = require('./config/database.js');
 
@@ -21,6 +22,11 @@ var app = express();
 mongoose.connect(configDB.url);
 
 require('./config/passport')(passport);
+// 
+// trending(function(err, repos) {
+//   console.log(repos);
+// });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
