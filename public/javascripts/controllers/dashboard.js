@@ -21,6 +21,9 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     $state.go('home');
   });
 
+  $scope.clearGitSearchModal = function() {
+    $scope.userToAdd = undefined;
+  };
 
   $scope.openGitUserInfo = function (watchedUser) {
       ngDialog.open({
@@ -53,7 +56,7 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
 
   $scope.searchGithubUser = function () {
 
-    $http.get(URLS.api + '/github/user/' + $scope.userToSearch)
+    $scope.searchGithubUserPromise = $http.get(URLS.api + '/github/user/' + $scope.userToSearch)
       .then(function(user) {
         if (user.data === 'user not found') {
           $scope.errorFindingUser = true;

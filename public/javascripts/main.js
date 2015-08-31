@@ -1,6 +1,6 @@
 'use strict()';
 
-angular.module('GithubCardApp', ['ui.router', 'ngDialog'])
+angular.module('GithubCardApp', ['ui.router', 'ngDialog', 'cgBusy'])
   .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
