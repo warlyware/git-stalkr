@@ -40,26 +40,17 @@ module.exports = function(app, passport) {
     app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
     app.get('/auth/google/callback', passport.authenticate('google', {
-      successRedirect: '/#/dashboard',
-      failureRedirect: '/'
+      successRedirect: process.env.SERVER + '/#/dashboard',
+      failureRedirect: process.env.SERVER + '/'
     }));
-
-    // TWITTER
-    app.get('/auth/twitter', passport.authenticate('twitter'));
-
-    app.get('/auth/twitter/callback',
-        passport.authenticate('twitter', {
-            successRedirect : '/#/profile',
-            failureRedirect : '/'
-        }));
 
     // GITHUB
     app.get('/auth/github',
       passport.authenticate('github'));
 
     app.get('/auth/github/callback', passport.authenticate('github', {
-      successRedirect: '/#/dashboard',
-      failureRedirect: '/'
+      successRedirect: process.env.SERVER + '/#/dashboard',
+      failureRedirect: process.env.SERVER + '/'
     }));
 
   // AUTHORIZATION ROUTES (LINK)
