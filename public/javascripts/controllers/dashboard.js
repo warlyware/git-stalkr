@@ -20,7 +20,7 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
     $rootScope.watchedUsers = user.data.watched;
     setTimeout(function() {
       TweenLite.from($(".github-user-card"), 1, {bottom: -1000});
-    }, 50);
+    }, 1);
 
   }, function(err) {
     console.log(err);
@@ -97,7 +97,7 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
         Materialize.toast(gitUser + ' has been removed', 3000, 'rounded');
         var watchedArray = $rootScope.watchedUsers;
         console.log(watchedArray);
-        setTimeout(function() {
+        // setTimeout(function() {
           for (var i = 0; i < watchedArray.length; i++) {
             console.log(watchedArray[i]);
             console.log(watchedUser);
@@ -105,7 +105,7 @@ angular.module('GithubCardApp').controller('DashboardCtrl', function($scope, $ro
               watchedArray.splice(i, 1);
             }
           }
-        }, 500);
+        // }, 500);
 
       }, function(err) {
         console.log(err);
