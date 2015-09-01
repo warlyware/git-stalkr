@@ -16,13 +16,16 @@ var configDB = require('./config/database.js');
 var users = require('./routes/users');
 var github = require('./routes/github');
 var watch = require('./routes/watch');
+var cors = require('cors');
 
 var app = express();
+
+app.use(cors());
 
 mongoose.connect(configDB.url);
 
 require('./config/passport')(passport);
-// 
+//
 // trending(function(err, repos) {
 //   console.log(repos);
 // });
