@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     if (gitUserData) {
       User.findOne({'_id': currentUserID}, function(err, currentUser) {
 
-
+        console.log(currentUser);
         // console.log(currentUser);
         var currentWatched = currentUser.watched;
 
