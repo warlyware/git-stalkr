@@ -3,6 +3,7 @@ angular.module('GithubCardApp').controller('GitImportCtrl', function($scope, $ro
 
     $scope.importGithubUser = function(userToImport) {
       console.log('add here', userToImport);
+      console.log('currentUser', $rootScope.user);
       $http.post(URLS.api + '/watch/', {
         currentUserID: $rootScope.user.id,
         gitUser: userToImport.login
