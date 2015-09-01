@@ -5,7 +5,7 @@ angular.module('GithubCardApp').controller('GitImportCtrl', function($scope, $ro
       console.log('add here', userToImport);
       console.log('currentUser', $rootScope.user);
       $http.post(URLS.api + '/watch/', {
-        currentUserID: $rootScope.user.id,
+        currentUserID: $rootScope.user._id,
         gitUser: userToImport.login
       }).then(function(savedImport) {
         Materialize.toast('user added', 3000, 'rounded');

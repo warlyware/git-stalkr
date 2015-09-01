@@ -13,6 +13,9 @@ router.post('/', function(req, res, next) {
   var currentUserID = req.body.currentUserID;
   var gitUser = req.body.gitUser;
 
+  console.log('currentUserID', currentUserID);
+  console.log('gitUser', gitUser);
+
   client.get('/users/' + gitUser, {}, function (err, status, gitUserData, headers) {
     if (err) {
       console.log(err);
@@ -21,6 +24,11 @@ router.post('/', function(req, res, next) {
 
     if (gitUserData) {
       User.findOne({'_id': currentUserID}, function(err, currentUser) {
+
+        if (err) {
+          console.log(err);
+          return;
+        }
 
         console.log(currentUser);
         // console.log(currentUser);
